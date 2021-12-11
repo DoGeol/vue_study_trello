@@ -7,9 +7,19 @@
 </template>
 
 <script>
-import TRow from '../components/layout/t-row'
+import { getTrelloList } from '../apis/api/trello'
+
 export default {
   name: 'MainContainer',
-  components: { TRow },
+  created() {
+    console.log('main_container created')
+    getTrelloList({ deleteYN: 'N' })
+      .then((response) => {
+        console.log('getTrelloList response :: ', response)
+      })
+      .catch((error) => {
+        console.log('getTrelloList error :: ', error)
+      })
+  },
 }
 </script>

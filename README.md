@@ -29,6 +29,9 @@
 2. prettier
 3. eslint
 4. Packages
+    * axios
     * scss
         * node-sass@4.14.1
         * sass-loader@7.3.1
+    * json-server
+    * concurrently : vue와 json-server를 같이 구동하기 위해 설치
