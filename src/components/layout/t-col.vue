@@ -1,5 +1,7 @@
 <template>
-  <div class="t-col"></div>
+  <div class="t-col">
+    <slot />
+  </div>
 </template>
 
 <script>
