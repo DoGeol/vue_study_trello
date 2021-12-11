@@ -1,0 +1,88 @@
+{
+  "lists": [
+    {
+      "id": 1,
+      "title": "리스트 타이틀 영역",
+      "createDate" : "",
+      "updateDate" : "",
+      "deleteYN" : "N"
+    },
+    {
+      "id": 2,
+      "title": "리스트 타이틀 영역",
+      "createDate" : "",
+      "updateDate" : "",
+      "deleteYN" : "Y"
+    }
+  ],
+  "listItems": [
+    {
+      "id": 1,
+      "listId": 1,
+      "title": "리스트 아이템 타이틀 영역",
+      "order": 1,
+      "createDate" : "",
+      "updateDate" : "",
+      "deleteYN" : "N"
+    },
+    {
+      "id": 2,
+      "listId": 1,
+      "title": "리스트 아이템 타이틀 영역2",
+      "order" : 2,
+      "createDate" : "",
+      "updateDate" : "",
+      "deleteYN" : "N"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "listItemId": 1,
+      "description" : "댓글1",
+      "createDate" : "",
+      "updateDate" : "",
+      "deleteYN" : "N"
+    },
+    {
+      "id": 2,
+      "listItemId": 1,
+      "description" : "댓글2",
+      "createDate" : "",
+      "updateDate" : "",
+      "deleteYN" : "N"
+    },
+    {
+      "id": 3,
+      "listItemId": 1,
+      "description" : "댓글3",
+      "createDate" : "",
+      "updateDate" : "",
+      "deleteYN" : "Y"
+    },
+    {
+      "id": 4,
+      "listItemId": 2,
+      "description" : "댓글1",
+      "createDate" : "",
+      "updateDate" : "",
+      "deleteYN" : "N"
+    },
+    {
+      "id": 5,
+      "listItemId": 2,
+      "description" : "댓글2",
+      "createDate" : "",
+      "updateDate" : "",
+      "deleteYN" : "N"
+    },
+    {
+      "id": 6,
+      "listItemId": 2,
+      "description" : "댓글3",
+      "createDate" : "",
+      "updateDate" : "",
+      "deleteYN" : "Y"
+    }
+  ]
+}
