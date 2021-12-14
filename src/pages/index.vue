@@ -1,7 +1,7 @@
 <template>
   <section class="container">
-    <t-row>
-      <t-col> 1234 </t-col>
+    <t-row tagName="span">
+      <t-col tagName="span" col="12"> 1234 </t-col>
     </t-row>
   </section>
 </template>
