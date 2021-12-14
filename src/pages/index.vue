@@ -1,5 +1,10 @@
 <template>
   <section class="container">
+    <t-header>
+      <t-row>
+        <t-col tagName="h1"> PDG Trello </t-col>
+      </t-row>
+    </t-header>
     <t-row>
       <t-col cols="12">
         <t-row :style="{ backgroundColor: 'red' }">
