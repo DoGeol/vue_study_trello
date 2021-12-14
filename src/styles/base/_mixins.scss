@@ -1,0 +1,38 @@
+@mixin vendorPrefix($attribute, $contents) {
+  -webkit-#{$attribute}: $contents;
+  -moz-#{$attribute}: $contents;
+  -o-#{$attribute}: $contents;
+  -ms-#{$attribute}: $contents;
+  #{$attribute}: $contents;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin multi-ellipsis($line) {
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media screen and(min-width: $screen-lg) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media screen and(min-width: $screen-md) {
+      @content;
+    }
+  } @else if $point == mobile {
+    @media screen and(min-width: $screen-sm) {
+      @content;
+    }
+  }
+}
