@@ -4,7 +4,7 @@
 
 .t-col {
   display: inline-block;
-  font-size: 8px;
+  font-size: 12px;
 
   @for $i from 0 through 24 {
     &.col-#{$i} {
@@ -16,7 +16,6 @@
     @for $xsIdx from 0 through 24 {
       &.col-xs-#{$xsIdx} {
         width: rounded((1 / 24 * $xsIdx * 100) * 1%, 3);
-        font-size: 8px;
       }
     }
   }
@@ -24,7 +23,7 @@
     @for $mdIdx from 0 through 24 {
       &.col-md-#{$mdIdx} {
         width: rounded((1 / 24 * $mdIdx * 100) * 1%, 3);
-        font-size: 12px;
+        font-size: 14px;
       }
     }
   }

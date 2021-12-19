@@ -2,41 +2,123 @@
   <section class="container">
     <t-header>
       <t-row>
-        <t-col tagName="h1"> PDG Trello </t-col>
+        <t-col>
+          <h1>PDG Trello</h1>
+        </t-col>
       </t-row>
     </t-header>
-    <t-row>
-      <t-col cols="12">
-        <t-row :style="{ backgroundColor: 'red' }">
-          <t-col cols="6" :style="{ backgroundColor: 'gray' }">
-            <div>test1</div>
-          </t-col>
-          <t-col cols="6" :style="{ backgroundColor: 'blue' }">
-            <div>test2</div>
-          </t-col>
-          <t-col cols="6" :style="{ backgroundColor: 'yellow' }">
-            <div>test3</div>
-          </t-col>
-          <t-col cols="6" :style="{ backgroundColor: 'green' }">
-            <div>test4</div>
-          </t-col>
-        </t-row>
-      </t-col>
-      <t-col cols="6">
-        <div>test</div>
-      </t-col>
-      <t-col cols="4">
-        <div>test</div>
-      </t-col>
+    <t-row class="trello">
+      <draggable :list="trelloLists" group="lists" ghost-class="trello-list__wrap__ghost">
+        <t-col v-for="tList in trelloLists" :key="tList.id" class="trello-list__wrap" cols="24" lg="6" md="12" xs="24">
+          <article class="trello-list">
+            <h2 class="trello-list__title">{{ tList.title }}</h2>
+            <draggable :list="tList.tasks" class="trello-list__tasks" ghost-class="trello-list__tasks-item__ghost" group="tasks" tag="ul">
+              <li v-for="item in tList.tasks" :key="item.id" class="trello-list__tasks-item">
+                {{ item.id }}
+              </li>
+            </draggable>
+          </article>
+        </t-col>
+      </draggable>
     </t-row>
   </section>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 import { getTrelloList } from '../apis/api/trello'
 
 export default {
   name: 'MainContainer',
+  components: {
+    draggable,
+  },
+  data() {
+    return {
+      dragOptions: {
+        animation: 10,
+        group: '',
+        disabled: '',
+        ghostClass: 'trello-list__tasks-item__ghost',
+      },
+      trelloLists: [
+        {
+          id: 1,
+          title: '트랠로 1',
+          tasks: [
+            {
+              id: 1,
+              title: 'task1',
+              date: '1234.12.12',
+              type: 'done',
+            },
+          ],
+        },
+        {
+          title: '트랠로 2',
+          tasks: [
+            {
+              id: 1,
+              title: 'task1',
+              date: '1234.12.12',
+              type: 'done',
+            },
+            {
+              id: 2,
+              title: 'task1',
+              date: '1234.12.12',
+              type: 'done',
+            },
+            {
+              id: 3,
+              title: 'task1',
+              date: '1234.12.12',
+              type: 'done',
+            },
+            {
+              id: 4,
+              title: 'task1',
+              date: '1234.12.12',
+              type: 'done',
+            },
+          ],
+        },
+        {
+          title: '트랠로 3',
+          tasks: [
+            {
+              id: 1,
+              title: 'task1',
+              date: '1234.12.12',
+              type: 'done',
+            },
+          ],
+        },
+        {
+          title: '트랠로 4',
+          tasks: [
+            {
+              id: 1,
+              title: 'task1',
+              date: '1234.12.12',
+              type: 'done',
+            },
+          ],
+        },
+        {
+          title: '트랠로 5',
+          tasks: [
+            {
+              id: 1,
+              title: 'task1',
+              date: '1234.12.12',
+              type: 'done',
+            },
+          ],
+        },
+      ],
+    }
+  },
   created() {
     console.log('main_container created')
     getTrelloList({ deleteYN: 'N' })
