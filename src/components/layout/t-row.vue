@@ -1,15 +1,9 @@
 <script>
 export default {
   name: 'TRow',
-  props: {
-    tagName: {
-      type: String,
-      default: 'div',
-    },
-  },
   render(h) {
     return h(
-      this.tagName,
+      'div',
       {
         class: ['t-row'],
       },

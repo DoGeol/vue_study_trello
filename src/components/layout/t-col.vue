@@ -2,35 +2,36 @@
 export default {
   name: 'TCol',
   props: {
-    tagName: {
-      type: String,
-      default: 'div',
-    },
     cols: {
       type: [String, Number],
       default: '24',
     },
-    isResponse: {
-      type: Boolean,
-      default: false,
+    xs: {
+      type: [String, Number],
+      default: null,
+    },
+    md: {
+      type: [String, Number],
+      default: null,
+    },
+    lg: {
+      type: [String, Number],
+      default: null,
     },
   },
   render(h) {
     const classList = [`col-${this.cols}`]
-    if (this.isResponse) {
-      const breakPointList = ['xs', 'md', 'lg']
-      breakPointList.forEach((breakPoint) => {
-        if (breakPoint === 'xs') {
-          classList.push(`col-${breakPoint}-${this.cols}`)
-        } else if (breakPoint === 'md') {
-          classList.push(`col-${breakPoint}-${this.cols / 2}`)
-        } else {
-          classList.push(`col-${breakPoint}-${this.cols / 4}`)
-        }
-      })
+    if (this.xs) {
+      classList.push(`col-xs-${this.xs}`)
+    }
+    if (this.md) {
+      classList.push(`col-md-${this.md}`)
+    }
+    if (this.lg) {
+      classList.push(`col-lg-${this.lg}`)
     }
     return h(
-      this.tagName,
+      'div',
       {
         class: ['t-col', ...classList],
       },
