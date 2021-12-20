@@ -4,7 +4,7 @@
   .trello-list {
     padding: 16px;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: $white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
     &__wrap {
@@ -26,7 +26,7 @@
       &-item {
         margin-top: 4px;
         padding: 8px;
-        border: 1px solid gray;
+        border: 1px solid $primary;
         border-radius: 4px;
 
         &:first-child {
