@@ -3,6 +3,7 @@ import App from './App.vue'
 import store from './store'
 
 import './styles/index.scss'
+import './styles/loop.scss'
 import './plugins'
 
 Vue.config.productionTip = false
