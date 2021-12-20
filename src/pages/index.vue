@@ -1,17 +1,33 @@
 <template>
   <section class="container">
     <t-header>
-      <t-row>
-        <t-col>
-          <h1>PDG Trello</h1>
-        </t-col>
-      </t-row>
+      <template v-slot:leftArea>
+        <t-row>
+          <t-col>
+            <h1>PDG Trello</h1>
+          </t-col>
+        </t-row>
+      </template>
+      <template v-slot:rightArea>
+        <t-row>
+          <t-col>
+            <t-button class="width-120 mg-l-auto"><span>리스트 추가</span></t-button>
+          </t-col>
+        </t-row>
+      </template>
     </t-header>
     <t-row class="trello">
       <draggable :list="trelloLists" group="lists" ghost-class="trello-list__wrap__ghost">
         <t-col v-for="tList in trelloLists" :key="tList.id" class="trello-list__wrap" cols="24" lg="6" md="12" xs="24">
           <article class="trello-list">
-            <h2 class="trello-list__title">{{ tList.title }}</h2>
+            <t-row class="mg-b-16">
+              <t-col cols="16">
+                <h2 class="trello-list__title">{{ tList.title }}</h2>
+              </t-col>
+              <t-col cols="8">
+                <t-button class="width-30 mg-l-auto" size="small">+</t-button>
+              </t-col>
+            </t-row>
             <draggable :list="tList.tasks" class="trello-list__tasks" ghost-class="trello-list__tasks-item__ghost" group="tasks" tag="ul">
               <li v-for="item in tList.tasks" :key="item.id" class="trello-list__tasks-item">
                 {{ item.id }}
@@ -27,10 +43,12 @@
 <script>
 import draggable from 'vuedraggable'
 import { getTrelloList } from '../apis/api/trello'
+import TButton from '../components/elements/button'
 
 export default {
   name: 'MainContainer',
   components: {
+    TButton,
     draggable,
   },
   data() {
