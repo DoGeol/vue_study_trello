@@ -29,9 +29,14 @@
               </t-col>
             </t-row>
             <draggable :list="tList.tasks" class="trello-list__tasks" ghost-class="trello-list__tasks-item__ghost" group="tasks" tag="ul">
-              <li v-for="item in tList.tasks" :key="item.id" class="trello-list__tasks-item">
-                {{ item.id }}
-              </li>
+              <template v-if="tList.tasks.length > 0">
+                <li v-for="item in tList.tasks" :key="item.id" class="trello-list__tasks-item">
+                  {{ item.id }}
+                </li>
+              </template>
+              <template v-else>
+                <li class="trello-list__tasks-item empty">아이템을 생성해주세요.</li>
+              </template>
             </draggable>
           </article>
         </t-col>
@@ -43,12 +48,10 @@
 <script>
 import draggable from 'vuedraggable'
 import { getTrelloList } from '../apis/api/trello'
-import TButton from '../components/elements/button'
 
 export default {
   name: 'MainContainer',
   components: {
-    TButton,
     draggable,
   },
   data() {

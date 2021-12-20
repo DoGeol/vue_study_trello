@@ -28,6 +28,7 @@
         padding: 8px;
         border: 1px solid $primary;
         border-radius: 4px;
+        cursor: pointer;
 
         &:first-child {
           margin-top: 0;
@@ -37,6 +38,13 @@
           opacity: 0.5;
           background: transparent;
           border: 1px solid gray;
+        }
+
+        &.empty {
+          opacity: 0.5;
+          background: transparent;
+          border: 1px solid gray;
+          cursor: default;
         }
       }
     }
