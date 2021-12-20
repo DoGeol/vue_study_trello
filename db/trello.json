@@ -5,6 +5,7 @@
       "title": "리스트 타이틀 영역",
       "createDate" : "",
       "updateDate" : "",
+      "order": 1,
       "deleteYN" : "N"
     },
     {
@@ -12,6 +13,7 @@
       "title": "리스트 타이틀 영역",
       "createDate" : "",
       "updateDate" : "",
+      "order": 2,
       "deleteYN" : "Y"
     }
   ],
@@ -20,20 +22,13 @@
       "id": 1,
       "listId": 1,
       "title": "리스트 아이템 타이틀 영역",
+      "description": "",
       "order": 1,
+      "status": "",
       "createDate" : "",
       "updateDate" : "",
       "deleteYN" : "N"
     },
-    {
-      "id": 2,
-      "listId": 1,
-      "title": "리스트 아이템 타이틀 영역2",
-      "order" : 2,
-      "createDate" : "",
-      "updateDate" : "",
-      "deleteYN" : "N"
-    }
   ],
   "comments": [
     {
