@@ -12,8 +12,9 @@
       vertical-align: top;
 
       &__ghost {
-        opacity: 0.5;
+        opacity: 0.8;
         background: transparent;
+        border: 4px dashed $primary-deep;
       }
     }
 
@@ -21,7 +22,6 @@
       font-size: 20px;
       font-weight: normal;
     }
-
     &__tasks {
       &-item {
         margin-top: 4px;
@@ -35,9 +35,9 @@
         }
 
         &__ghost {
-          opacity: 0.5;
+          opacity: 0.8;
           background: transparent;
-          border: 1px solid gray;
+          border: 4px dashed $primary-deep;
         }
 
         &.empty {
@@ -45,8 +45,20 @@
           background: transparent;
           border: 1px solid gray;
           cursor: default;
+
+          //&:hover {
+          //  opacity: 1;
+          //  cursor: pointer;
+          //}
         }
       }
     }
+  }
+}
+
+.form {
+  label {
+    font-size: 14px;
+    font-weight: bold;
   }
 }
