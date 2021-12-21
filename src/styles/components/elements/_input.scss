@@ -1,0 +1,58 @@
+.input {
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    color: #000000;
+    border: 1px solid $primary;
+    padding: 8px 12px;
+    border-radius: 4px;
+
+    &.active {
+      border-color: $primary-deep;
+    }
+
+    &:focus {
+      border-color: $primary-deep;
+      outline: none;
+      @include vendorPrefix('transition', all 0.1s ease);
+    }
+
+    &:disabled {
+      color: #b1b1ca;
+      border-color: #d7d7e1;
+      background-color: #f0f0f4;
+    }
+
+    &::placeholder {
+      color: #b1b1ca;
+    }
+
+    &.small {
+      padding: 0 16px;
+      height: 32px;
+      font-size: 12px;
+      line-height: 30px;
+    }
+
+    &.large {
+      padding: 12px 24px;
+      height: 48px;
+    }
+
+    &.error {
+      border: 1px solid $point-sub;
+    }
+  }
+}
