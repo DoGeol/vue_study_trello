@@ -155,9 +155,7 @@ export const getStyle =
                 return 1.0
               }
             default:
-              return element.style[styleName] || element.currentStyle
-                ? element.currentStyle[styleName]
-                : null
+              return element.style[styleName] || element.currentStyle ? element.currentStyle[styleName] : null
           }
         } catch (e) {
           return element.style[styleName]
@@ -211,11 +209,7 @@ export const isScroll = (el, vertical) => {
   }
 
   const determinedDirection = vertical !== null || vertical !== undefined
-  const overflow = determinedDirection
-    ? vertical
-      ? getStyle(el, 'overflow-y')
-      : getStyle(el, 'overflow-x')
-    : getStyle(el, 'overflow')
+  const overflow = determinedDirection ? (vertical ? getStyle(el, 'overflow-y') : getStyle(el, 'overflow-x')) : getStyle(el, 'overflow')
 
   return overflow.match(/(scroll|auto)/)
 }
@@ -258,10 +252,5 @@ export const isInContainer = (el, container) => {
     containerRect = container.getBoundingClientRect()
   }
 
-  return (
-    elRect.top < containerRect.bottom &&
-    elRect.bottom > containerRect.top &&
-    elRect.right > containerRect.left &&
-    elRect.left < containerRect.right
-  )
+  return elRect.top < containerRect.bottom && elRect.bottom > containerRect.top && elRect.right > containerRect.left && elRect.left < containerRect.right
 }

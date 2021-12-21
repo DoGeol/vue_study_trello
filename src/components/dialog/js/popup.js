@@ -138,13 +138,7 @@ export default {
           PopupManager.closeModal(this._popupId)
           this._closing = false
         }
-        PopupManager.openModal(
-          this._popupId,
-          PopupManager.nextZIndex(),
-          this.modalAppendToBody ? undefined : dom,
-          props.modalClass,
-          props.modalFade,
-        )
+        PopupManager.openModal(this._popupId, PopupManager.nextZIndex(), this.modalAppendToBody ? undefined : dom, props.modalClass, props.modalFade)
         if (props.lockScroll) {
           this.withoutHiddenClass = !hasClass(document.body, 'body-scroll-hidden')
           if (this.withoutHiddenClass) {
@@ -154,11 +148,7 @@ export default {
           scrollBarWidth = getScrollBarWidth()
           const bodyHasOverflow = document.documentElement.clientHeight < document.body.scrollHeight
           const bodyOverflowY = getStyle(document.body, 'overflowY')
-          if (
-            scrollBarWidth > 0 &&
-            (bodyHasOverflow || bodyOverflowY === 'scroll') &&
-            this.withoutHiddenClass
-          ) {
+          if (scrollBarWidth > 0 && (bodyHasOverflow || bodyOverflowY === 'scroll') && this.withoutHiddenClass) {
             document.body.style.paddingRight = this.computedBodyPaddingRight + scrollBarWidth + 'px'
           }
           addClass(document.body, 'body-scroll-hidden')

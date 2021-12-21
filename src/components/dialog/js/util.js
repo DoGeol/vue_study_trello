@@ -100,8 +100,7 @@ export const valueEquals = (a, b) => {
   return true
 }
 
-export const escapeRegexpString = (value = '') =>
-  String(value).replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
+export const escapeRegexpString = (value = '') => String(value).replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
 
 //  use native Array.find, Array.findIndex when IE support is dropped
 export const arrayFindIndex = function (arr, pred) {

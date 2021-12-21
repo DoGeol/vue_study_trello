@@ -27,6 +27,17 @@
     transform: none;
     background: #fff;
 
+    &-header {
+      &__title {
+        font-size: 22px;
+        font-weight: normal;
+      }
+    }
+
+    &-footer {
+      width: 100%;
+    }
+
     &.is-align-center-x {
       margin: 0 auto;
     }
