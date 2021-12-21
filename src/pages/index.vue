@@ -30,7 +30,7 @@
             </t-row>
             <draggable :list="tList.tasks" class="trello-list__tasks" ghost-class="trello-list__tasks-item__ghost" group="tasks" tag="ul">
               <template v-if="tList.tasks.length > 0">
-                <li v-for="item in tList.tasks" :key="item.id" class="trello-list__tasks-item">
+                <li v-for="item in tList.tasks" :key="item.id" class="trello-list__tasks-item" @click="dialog.visible = !dialog.visible">
                   {{ item.id }}
                 </li>
               </template>
@@ -42,20 +42,27 @@
         </t-col>
       </draggable>
     </t-row>
+
+    <t-dialog :visible.sync="dialog.visible"> 다이얼로그 테스트 </t-dialog>
   </section>
 </template>
 
 <script>
 import draggable from 'vuedraggable'
-import { getTrelloList } from '../apis/api/trello'
+import { getTrelloList } from '@/apis/api/trello'
+import TDialog from '@/components/dialog'
 
 export default {
   name: 'MainContainer',
   components: {
+    TDialog,
     draggable,
   },
   data() {
     return {
+      dialog: {
+        visible: false,
+      },
       dragOptions: {
         animation: 10,
         group: '',
