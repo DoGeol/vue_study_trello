@@ -16,8 +16,8 @@
         </t-row>
       </template>
     </t-header>
-    <t-trello :list="trelloLists">
-      <template #header="data">
+    <t-trello :list="trelloLists" @actionCallback="getList">
+      <template #header-title="data">
         <h2 class="trello-list__title">{{ data.title }}</h2>
       </template>
       <template #tasks="tasks">
@@ -32,10 +32,12 @@
 <script>
 import { getTrelloList } from '@/apis/api/trello'
 import PagesComponentAddListDialog from '@/pages/component/addListDialog'
+import TTrello from '@/pages/component/trello/list'
+import TTrelloItemDefault from '@/pages/component/trello/item'
 
 export default {
   name: 'MainContainer',
-  components: { PagesComponentAddListDialog },
+  components: { PagesComponentAddListDialog, TTrello, TTrelloItemDefault },
   data() {
     return {
       addListDialog: {
@@ -51,7 +53,6 @@ export default {
     }
   },
   created() {
-    console.log('main_container created')
     this.init()
   },
   methods: {
@@ -61,7 +62,7 @@ export default {
     getList() {
       getTrelloList({ deleteYN: 'N' })
         .then((response) => {
-          this.trelloLists = response
+          this.trelloLists = [...response]
         })
         .catch((error) => {
           console.log('getTrelloList error :: ', error)

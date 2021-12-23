@@ -39,3 +39,12 @@ export const getTrelloTask = (id) => {
     method: 'get',
   })
 }
+
+/* 트랠로 테스크 생성 */
+export const postTrelloTask = (data) => {
+  return request({
+    url: `/tasks`,
+    method: 'post',
+    data,
+  })
+}
