@@ -1,5 +1,5 @@
 <template>
-  <li class="trello-list__tasks-item">
+  <li class="trello-list__tasks-item" @click="handleClick">
     {{ task.title }}
   </li>
 </template>
@@ -11,6 +11,11 @@ export default {
     task: {
       type: Object,
       default: () => {},
+    },
+  },
+  methods: {
+    handleClick() {
+      this.$emit('click')
     },
   },
 }

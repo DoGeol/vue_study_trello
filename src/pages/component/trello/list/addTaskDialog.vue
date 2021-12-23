@@ -32,7 +32,7 @@
 import { postTrelloTask } from '@/apis/api/trello'
 
 export default {
-  name: 'PagesComponentAddTaskDialog',
+  name: 'PagesComponentTrelloListAddTaskDialog',
   props: {
     visible: {
       type: Boolean,

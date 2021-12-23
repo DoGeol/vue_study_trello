@@ -27,19 +27,19 @@
       </t-col>
     </draggable>
 
-    <pages-component-add-task-dialog :visible="addTaskDialog.visible" :list="addTaskDialog.list" @handleClose="handleCloseAddTaskDialog" />
+    <pages-component-trello-list-add-task-dialog :visible="addTaskDialog.visible" :list="addTaskDialog.list" @handleClose="handleCloseAddTaskDialog" />
   </t-row>
 </template>
 
 <script>
 import draggable from 'vuedraggable'
 import { deleteTrelloList } from '@/apis/api/trello'
-import PagesComponentAddTaskDialog from '@/pages/component/addTaskDialog'
+import PagesComponentTrelloListAddTaskDialog from '@/pages/component/trello/list/addTaskDialog'
 
 export default {
   name: 'TTrello',
   components: {
-    PagesComponentAddTaskDialog,
+    PagesComponentTrelloListAddTaskDialog,
     draggable,
   },
   props: {
