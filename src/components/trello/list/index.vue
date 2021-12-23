@@ -9,8 +9,8 @@
             </t-col>
             <t-col cols="8">
               <div class="flex x-end y-center">
-                <t-button class="width-30" size="small" @click="handleAddList(item)">+</t-button>
-                <t-button class="width-30 mg-l-8" size="small" @click="handleRemoveList(item)">x</t-button>
+                <t-button class="width-30" size="small" @click="handleAddList(item)">추가</t-button>
+                <t-button class="width-30 mg-l-8" size="small" @click="handleRemoveList(item)">삭제</t-button>
               </div>
             </t-col>
           </t-row>
