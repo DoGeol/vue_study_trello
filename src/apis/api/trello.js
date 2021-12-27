@@ -48,3 +48,12 @@ export const postTrelloTask = (data) => {
     data,
   })
 }
+
+/* 트랠로 테스크 수정 */
+export const putTrelloTask = (id, data) => {
+  return request({
+    url: `/tasks/${id}`,
+    method: 'put',
+    data,
+  })
+}

@@ -22,22 +22,24 @@
       </template>
       <template #tasks="tasks">
         <template v-for="task in tasks.task">
-          <t-trello-item-default :task="task" :key="task.id" />
+          <t-trello-item-default :task="task" :key="task.id" @click="handleOpenTaskDetailDialog(task)" />
         </template>
       </template>
     </t-trello>
     <pages-component-add-list-dialog :visible="addListDialog.visible" @handleClose="handleCloseAddListDialog"></pages-component-add-list-dialog>
+    <pages-component-task-detail-dialog :visible="taskDetailDialog.visible" :task="taskDetailDialog.task" @handleClose="handleCloseTaskDetailDialog" />
   </section>
 </template>
 <script>
 import { getTrelloList } from '@/apis/api/trello'
 import PagesComponentAddListDialog from '@/pages/component/addListDialog'
+import PagesComponentTaskDetailDialog from '@/pages/component/taskDetailDialog'
 import TTrello from '@/pages/component/trello/list'
 import TTrelloItemDefault from '@/pages/component/trello/item'
 
 export default {
   name: 'MainContainer',
-  components: { PagesComponentAddListDialog, TTrello, TTrelloItemDefault },
+  components: { PagesComponentTaskDetailDialog, PagesComponentAddListDialog, TTrello, TTrelloItemDefault },
   data() {
     return {
       addListDialog: {
@@ -50,6 +52,10 @@ export default {
         ghostClass: 'trello-list__tasks-item__ghost',
       },
       trelloLists: [],
+      taskDetailDialog: {
+        visible: false,
+        task: {},
+      },
     }
   },
   created() {
@@ -74,6 +80,16 @@ export default {
     },
     handleCloseAddListDialog(reset) {
       this.addListDialog.visible = false
+      if (reset) {
+        this.getList()
+      }
+    },
+    handleOpenTaskDetailDialog(task) {
+      this.taskDetailDialog.task = task
+      this.taskDetailDialog.visible = true
+    },
+    handleCloseTaskDetailDialog(reset) {
+      this.taskDetailDialog.visible = false
       if (reset) {
         this.getList()
       }

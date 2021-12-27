@@ -62,7 +62,6 @@ export default {
       console.log('save')
       const defaultTrelloListItem = {
         title: this.title,
-        deleteYN: 'N',
       }
       postTrelloList(defaultTrelloListItem)
         .then(() => {

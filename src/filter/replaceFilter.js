@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-Vue.filter('statusFilter', (status) => {
+Vue.filter('replaceStatusFilter', (status) => {
   let statusName = '-'
   switch (status) {
     case 'open':
@@ -10,8 +10,12 @@ Vue.filter('statusFilter', (status) => {
       statusName = '진행중'
       break
     case 'close':
-      statusName = '닫힘'
+      statusName = '완료'
       break
   }
   return statusName
+})
+
+Vue.filter('replaceBrFilter', (text) => {
+  return text ? text.split('\n').join('<br/>') : '-'
 })

@@ -62,3 +62,15 @@
     font-weight: bold;
   }
 }
+
+/* trello detail dialog */
+.task-detail-dialog {
+  .label {
+    font-weight: 900;
+  }
+  .detail-info-area {
+    padding: 12px;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+}
