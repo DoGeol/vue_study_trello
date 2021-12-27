@@ -29,6 +29,17 @@
     background-color: $primary-deep;
   }
 
+  &.white {
+    color: #000000;
+    border: 1px solid #bebebe;
+    background-color: #ffffff;
+
+    &:hover {
+      color: #ffffff;
+      background-color: #bebebe;
+    }
+  }
+
   &:disabled {
     color: #fff;
     border: 1px solid transparent;
