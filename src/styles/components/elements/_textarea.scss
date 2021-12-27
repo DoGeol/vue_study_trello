@@ -1,0 +1,37 @@
+.textarea {
+  position: relative;
+
+  textarea {
+    padding: 8px 12px;
+    line-height: 24px;
+    color: #000000;
+    resize: none;
+    border: 1px solid $primary;
+    border-radius: 4px;
+
+    &::placeholder {
+      color: #b1b1ca;
+    }
+
+    &.active {
+      border-color: $primary-deep;
+    }
+
+    &:focus {
+      border-color: $primary-deep;
+      outline: none;
+      @include vendorPrefix('transition', all 0.1s ease);
+    }
+
+    &:disabled {
+      color: #b1b1ca;
+      border-color: #d7d7e1;
+      background-color: #f0f0f4;
+    }
+
+    &.error {
+      border: 1px solid $point-sub;
+    }
+  }
+}
+

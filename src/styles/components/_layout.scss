@@ -7,6 +7,13 @@
 .t-col {
   display: inline-block;
   font-size: 12px;
+  vertical-align: top;
+
+  &.vertical {
+    &-middle {
+      vertical-align: middle;
+    }
+  }
 
   @for $i from 0 through 24 {
     &.col-#{$i} {
