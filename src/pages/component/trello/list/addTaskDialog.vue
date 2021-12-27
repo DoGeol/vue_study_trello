@@ -5,20 +5,32 @@
     </div>
     <div class="dialog-contents pd-x-12 pd-y-12 width-full text-center">
       <t-row class="form">
-        <t-col cols="6">
-          <label>테스크 이름</label>
-        </t-col>
-        <t-col cols="18">
-          <div class="input">
-            <input class="width-full" v-model="title" />
-          </div>
-        </t-col>
+        <t-row>
+          <t-col cols="4" class="mg-t-4">
+            <label>제목</label>
+          </t-col>
+          <t-col cols="20">
+            <div class="input">
+              <input class="width-full" v-model="form.title" />
+            </div>
+          </t-col>
+        </t-row>
+        <t-row class="mg-t-8">
+          <t-col cols="4" class="mg-t-4">
+            <label>내용</label>
+          </t-col>
+          <t-col cols="20">
+            <div class="textarea">
+              <textarea class="width-full" v-model="form.description" />
+            </div>
+          </t-col>
+        </t-row>
       </t-row>
     </div>
     <div class="dialog-footer">
-      <t-row class="pd-x-12 pd-y-12">
+      <t-row class="pd-x-24 pd-y-12">
         <t-col cols="12" class="pd-r-8">
-          <t-button @click="handleClose">취소</t-button>
+          <t-button class="white" @click="handleClose">취소</t-button>
         </t-col>
         <t-col cols="12" class="pd-l-8">
           <t-button @click="handleAddTask">추가</t-button>
@@ -45,7 +57,12 @@ export default {
   },
   data() {
     return {
-      title: '',
+      form: {
+        listId: '',
+        title: '',
+        description: '',
+        status: 'open',
+      },
     }
   },
   watch: {
@@ -57,19 +74,19 @@ export default {
   },
   methods: {
     resetData() {
-      this.title = ''
+      this.form = {
+        listId: '',
+        title: '',
+        description: '',
+        status: 'open',
+      }
     },
     handleClose(reset) {
       this.$emit('handleClose', reset === true)
     },
     handleAddTask() {
-      const defaultTask = {
-        listId: this.list.id,
-        title: this.title,
-        status: '',
-        deleteYN: 'N',
-      }
-      postTrelloTask(defaultTask)
+      this.form.listId = this.list.id
+      postTrelloTask(this.form)
         .then(() => {
           this.handleClose(true)
         })
