@@ -22,7 +22,7 @@
       </template>
       <template #tasks="tasks">
         <template v-for="task in tasks.task">
-          <t-trello-item-default :task="task" :key="task.id" @click="handleOpenTaskDetailDialog(task)" />
+          <t-trello-item-default :task="task" :key="task.id" @click="handleOpenTaskDetailDialog(task)" @handleDelete="getList" />
         </template>
       </template>
     </t-trello>

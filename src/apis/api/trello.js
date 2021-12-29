@@ -57,3 +57,11 @@ export const putTrelloTask = (id, data) => {
     data,
   })
 }
+
+/* 트랠로 테스크 삭제 */
+export const deleteTrelloTask = (id) => {
+  return request({
+    url: `/tasks/${id}`,
+    method: 'delete',
+  })
+}

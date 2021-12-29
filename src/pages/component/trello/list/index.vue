@@ -14,13 +14,13 @@
               </div>
             </t-col>
           </t-row>
-          <draggable :list="item.tasks" class="trello-list__tasks" ghost-class="trello-list__tasks-item__ghost" group="tasks" tag="ul" filter=".ignore-task">
+          <draggable :list="item.tasks" class="trello-list__tasks" ghost-class="trello-list__tasks-item__ghost" group="tasks" tag="ul" filter=".ignore">
             <template v-if="item.tasks.length > 0">
               <!-- item -->
               <slot name="tasks" :task="item.tasks" />
             </template>
             <template v-else>
-              <li class="trello-list__tasks-item empty ignore-task">테스크를 생성해주세요.</li>
+              <li class="trello-list__tasks-item empty ignore">테스크를 생성해주세요.</li>
             </template>
           </draggable>
         </article>
