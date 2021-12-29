@@ -90,7 +90,10 @@ export default {
   },
   methods: {
     resetData() {
-      this.title = ''
+      this.isEdit = false
+      this.form.title = ''
+      this.form.description = ''
+      this.form.status = ''
     },
     init() {
       this.form = this.$merge({}, this.task)
