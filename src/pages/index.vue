@@ -66,7 +66,7 @@ export default {
       this.getList()
     },
     getList() {
-      getTrelloList({ deleteYN: 'N' })
+      getTrelloList({})
         .then((response) => {
           this.trelloLists = [...response]
         })
