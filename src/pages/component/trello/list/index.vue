@@ -1,5 +1,6 @@
 <template>
   <t-row class="trello">
+    <!-- TODO. draggable 기능만 하는 컴포넌트를 만들어서 wrapper로 사용   -->
     <draggable :list="list" group="lists" ghost-class="trello-list__wrap__ghost" filter=".button">
       <t-col v-for="item in list" :key="item.id" class="trello-list__wrap" cols="24" lg="6" md="12" xs="24">
         <article class="trello-list">
