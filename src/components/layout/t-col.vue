@@ -20,6 +20,7 @@ export default {
     },
   },
   render(h) {
+    //TODO. Script의 데이터를 SCSS로 던져주는 방법 찾아보고 적용해보기
     const classList = [`col-${this.cols}`]
     if (this.xs) {
       classList.push(`col-xs-${this.xs}`)
