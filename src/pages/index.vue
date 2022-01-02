@@ -43,7 +43,7 @@
       </t-draggable>
     </t-row>
 
-    <t-trello-add-list-dialog :visible="addListDialog.visible" @handleClose="handleCloseAddListDialog"></t-trello-add-list-dialog>>
+    <t-trello-add-list-dialog :visible="addListDialog.visible" @handleClose="handleCloseAddListDialog"></t-trello-add-list-dialog>
     <t-trello-add-task-dialog :visible="addTaskDialog.visible" :list="addTaskDialog.list" @handleClose="handleCloseAddTaskDialog" />
     <t-trello-task-detail-dialog :visible="taskDetailDialog.visible" :task="taskDetailDialog.task" @handleClose="handleCloseTaskDetailDialog" />
   </section>
