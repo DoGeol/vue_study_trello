@@ -38,6 +38,12 @@
                 <t-trello-item-default :task="task" :key="task.id" @click="handleOpenTaskDetailDialog(task)" @handleDelete="getList" />
               </template>
             </template>
+            <template #context-menu>
+              <ul>
+                <li @click="handleContextOpenAddTaskDialog(list)">Task 추가</li>
+                <li @click="handleContextRemoveList(list)">리스트 삭제</li>
+              </ul>
+            </template>
           </t-trello-list>
         </t-col>
       </t-draggable>

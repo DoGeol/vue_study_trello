@@ -126,9 +126,9 @@ export default {
       if (!this.fullscreen) {
         if (!this.alignCenterX) {
           if (this.right !== '0') {
-            style.left = this.left
-          } else {
             style.right = this.right
+          } else {
+            style.left = this.left
           }
         }
         if (!this.alignCenterY) {

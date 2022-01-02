@@ -1,0 +1,16 @@
+.context-menu {
+  .dialog {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    ul {
+      width: 100%;
+      li {
+        padding: 6px;
+        &:hover {
+          cursor: pointer;
+          background-color: gray;
+        }
+      }
+    }
+  }
+}
