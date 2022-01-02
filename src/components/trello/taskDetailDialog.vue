@@ -59,7 +59,7 @@
 import { putTrelloTask } from '@/apis/api/trello'
 
 export default {
-  name: 'PagesComponentTrelloListTaskDetailDialog',
+  name: 'TTrelloTaskDetailDialog',
   props: {
     visible: {
       type: Boolean,

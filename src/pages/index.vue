@@ -26,20 +26,26 @@
         </template>
       </template>
     </t-trello>
-    <pages-component-add-list-dialog :visible="addListDialog.visible" @handleClose="handleCloseAddListDialog"></pages-component-add-list-dialog>
-    <pages-component-task-detail-dialog :visible="taskDetailDialog.visible" :task="taskDetailDialog.task" @handleClose="handleCloseTaskDetailDialog" />
+
+    <t-trello-add-list-dialog :visible="addListDialog.visible" @handleClose="handleCloseAddListDialog"></t-trello-add-list-dialog>>
+    <t-trello-task-detail-dialog :visible="taskDetailDialog.visible" :task="taskDetailDialog.task" @handleClose="handleCloseTaskDetailDialog" />
   </section>
 </template>
 <script>
 import { getTrelloList } from '@/apis/api/trello'
-import PagesComponentAddListDialog from '@/pages/component/addListDialog'
-import PagesComponentTaskDetailDialog from '@/pages/component/taskDetailDialog'
-import TTrello from '@/pages/component/trello/list'
-import TTrelloItemDefault from '@/pages/component/trello/item'
+import TTrello from '@/components/trello/list'
+import TTrelloItemDefault from '@/components/trello/item'
+import TTrelloAddListDialog from '@/components/trello/addListDialog'
+import TTrelloTaskDetailDialog from '@/components/trello/taskDetailDialog'
 
 export default {
   name: 'MainContainer',
-  components: { PagesComponentTaskDetailDialog, PagesComponentAddListDialog, TTrello, TTrelloItemDefault },
+  components: {
+    TTrello,
+    TTrelloItemDefault,
+    TTrelloTaskDetailDialog,
+    TTrelloAddListDialog,
+  },
   data() {
     return {
       addListDialog: {
