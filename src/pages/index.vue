@@ -47,8 +47,8 @@
               </template>
               <template #context-menu>
                 <ul>
-                  <li @click="handleContextOpenAddTaskDialog(list)">Task 추가</li>
-                  <li @click="handleContextRemoveList(list)">리스트 삭제</li>
+                  <li @click="handleOpenAddTaskDialog(list)">Task 추가</li>
+                  <li @click="handleRemoveList(list)">리스트 삭제</li>
                 </ul>
               </template>
             </t-trello-list>

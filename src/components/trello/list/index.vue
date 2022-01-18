@@ -15,7 +15,7 @@
       </template>
     </t-draggable>
 
-    <t-context-menu :visible="contextMenu.visible" :position="contextMenu.position" @handleClose="handleCloseContextMenu">
+    <t-context-menu :visible="contextMenu.visible" :position="contextMenu.position" @handleClose="handleCloseContextMenu" @click.native="handleCloseContextMenu">
       <slot name="context-menu"></slot>
     </t-context-menu>
   </article>

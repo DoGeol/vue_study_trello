@@ -1,17 +1,9 @@
 {
   "lists": [
     {
-      "title": "123",
+      "title": "123123",
       "id": 1
     }
   ],
-  "tasks": [
-    {
-      "listId": 1,
-      "title": "213",
-      "description": "123",
-      "status": "open",
-      "id": 1
-    }
-  ]
+  "tasks": []
 }
