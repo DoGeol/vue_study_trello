@@ -1,5 +1,5 @@
 <template>
-  <draggable :list="list" :group="groupName" :ghost-class="ghostClass" :filter="filterClass" :tag="tag">
+  <draggable :list="list" :group="groupName" :ghost-class="ghostClass" :filter="filterClass" :tag="tag" :move="moveFunc">
     <slot />
   </draggable>
 </template>
@@ -32,6 +32,10 @@ export default {
     tag: {
       type: String,
       default: '',
+    },
+    moveFunc: {
+      type: Function,
+      default: () => {},
     },
   },
 }

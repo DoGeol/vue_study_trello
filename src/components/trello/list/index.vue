@@ -1,18 +1,16 @@
 <template>
   <article class="trello-list" @contextmenu.prevent @click.right="handleOpenContextMenu">
     <slot name="header" />
-    <t-draggable :list="taskList" class="trello-list__tasks" ghost-class="trello-list__tasks-item__ghost" group-name="tasks" tag="ul" filter-class=".ignore">
+    <t-draggable :list="taskList" class="trello-list__tasks" ghost-class="trello-list__tasks-item__ghost" group-name="tasks" tag="ul" filter-class=".ignore" :move-func="handleCheckMove">
       <template v-if="taskList.length > 0">
         <!-- item -->
         <slot name="tasks" :task="taskList" />
       </template>
-      <template v-else>
-        <li class="trello-list__tasks-item empty ignore">
-          <slot name="empty_tasks">
-            <div class="flex x-center y-center">테스크를 생성해주세요</div>
-          </slot>
-        </li>
-      </template>
+      <li class="trello-list__tasks-item empty ignore">
+        <slot name="empty_tasks">
+          <div class="flex x-center y-center">테스크를 생성해주세요</div>
+        </slot>
+      </li>
     </t-draggable>
 
     <t-context-menu :visible="contextMenu.visible" :position="contextMenu.position" @handleClose="handleCloseContextMenu" @click.native="handleCloseContextMenu">
@@ -52,6 +50,9 @@ export default {
       this.contextMenu.visible = false
       this.contextMenu.position.x = 0
       this.contextMenu.position.y = 0
+    },
+    handleCheckMove(evt) {
+      return !evt.related.classList.contains('ignore')
     },
   },
 }
