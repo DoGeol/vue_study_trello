@@ -59,9 +59,9 @@
         <t-col class="trello-list__wrap" cols="24" lg="6" md="12" xs="24">
           <article class="trello-list">
             <t-row>
-              <t-col class="height-300">
+              <t-col class="height-110">
                 <div class="flex x-center y-center height-full">
-                  <span class="plus big width-100 height-100" @click="handleOpenAddListDialog" />
+                  <span class="plus big width-70 height-70" @click="handleOpenAddListDialog" />
                 </div>
               </t-col>
             </t-row>
