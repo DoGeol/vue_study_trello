@@ -23,15 +23,16 @@
             <t-trello-list :task-list="list.tasks">
               <template #header>
                 <t-row class="mg-b-16">
-                  <t-col cols="16">
-                    <h2 class="trello-list__title">{{ list.title }}</h2>
-                  </t-col>
-                  <t-col cols="8">
-                    <div class="flex x-end y-center">
-                      <t-button size="small" @click="handleOpenAddTaskDialog(list)">Task 추가</t-button>
-                      <t-button class="mg-l-8" size="small" @click="handleRemoveList(list)">삭제</t-button>
+                  <t-col>
+                    <div class="flex x-between y-center">
+                      <h2 class="trello-list__title">{{ list.title }}</h2>
+                      <div class="flex x-end y-center">
+                        <t-button size="small" @click="handleOpenAddTaskDialog(list)">Task 추가</t-button>
+                        <t-button class="mg-l-8" size="small" @click="handleRemoveList(list)">삭제</t-button>
+                      </div>
                     </div>
                   </t-col>
+                  <t-col cols="8"> </t-col>
                 </t-row>
               </template>
               <template #tasks="tasks">
