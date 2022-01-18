@@ -11,7 +11,7 @@
       <template v-slot:rightArea>
         <t-row>
           <t-col>
-            <t-button class="width-120 mg-l-auto" @click="handleOpenAddListDialog">리스트 추가</t-button>
+            <t-button class="width-120 mg-l-auto" @click="handleOpenListDialog">리스트 추가</t-button>
           </t-col>
         </t-row>
       </template>
@@ -27,7 +27,7 @@
                     <div class="flex x-between y-center">
                       <h2 class="trello-list__title">{{ list.title }}</h2>
                       <div class="flex x-end y-center">
-                        <t-button size="small" @click="handleOpenAddTaskDialog(list)">Task 추가</t-button>
+                        <t-button size="small" @click="handleOpenListDialog('update', list)">수정</t-button>
                         <t-button class="mg-l-8" size="small" @click="handleRemoveList(list)">삭제</t-button>
                       </div>
                     </div>
@@ -61,7 +61,7 @@
             <t-row>
               <t-col class="height-110">
                 <div class="flex x-center y-center height-full">
-                  <span class="plus big width-70 height-70" @click="handleOpenAddListDialog" />
+                  <span class="plus big width-70 height-70" @click="handleOpenListDialog" />
                 </div>
               </t-col>
             </t-row>
@@ -70,14 +70,14 @@
       </template>
     </t-row>
 
-    <t-trello-add-list-dialog :visible="addListDialog.visible" @handleClose="handleCloseAddListDialog" />
+    <t-trello-list-dialog :visible="listDialog.visible" :is-edit="listDialog.isEdit" :list="listDialog.list" @handleClose="handleCloseListDialog" />
     <t-trello-add-task-dialog :visible="addTaskDialog.visible" :list="addTaskDialog.list" @handleClose="handleCloseAddTaskDialog" />
     <t-trello-task-detail-dialog :visible="taskDetailDialog.visible" :task="taskDetailDialog.task" @handleClose="handleCloseTaskDetailDialog" />
   </section>
 </template>
 <script>
 import { deleteTrelloList, getTrelloList } from '@/apis/api/trello'
-import TTrelloAddListDialog from '@/components/trello/addListDialog'
+import TTrelloListDialog from '@/components/trello/listDialog'
 import TTrelloAddTaskDialog from '@/components/trello/addTaskDialog'
 import TTrelloTaskDetailDialog from '@/components/trello/taskDetailDialog'
 import TTrelloList from '@/components/trello/list'
@@ -87,7 +87,7 @@ export default {
   name: 'MainContainer',
   components: {
     TTrelloAddTaskDialog,
-    TTrelloAddListDialog,
+    TTrelloListDialog,
     TTrelloTaskDetailDialog,
     TTrelloList,
     TTrelloItemDefault,
@@ -101,8 +101,10 @@ export default {
         ghostClass: 'trello-list__tasks-item__ghost',
       },
       trelloLists: [],
-      addListDialog: {
+      listDialog: {
         visible: false,
+        isEdit: false,
+        list: {},
       },
       taskDetailDialog: {
         visible: false,
@@ -131,14 +133,23 @@ export default {
           this.trelloLists = []
         })
     },
-    handleOpenAddListDialog() {
-      this.addListDialog.visible = true
+    handleOpenListDialog(type = 'insert', list = {}) {
+      if (type === 'update') {
+        this.listDialog.isEdit = true
+        this.listDialog.list = list
+      }
+      this.listDialog.visible = true
     },
-    handleCloseAddListDialog(reset) {
-      this.addListDialog.visible = false
+    handleCloseListDialog(reset) {
+      this.listDialog.visible = false
+      this.listDialog.isEdit = false
+      this.listDialog.list = {}
       if (reset) {
         this.getList()
       }
+    },
+    handleUpdateListDialog() {
+      this.listDialog.visible = true
     },
     handleOpenTaskDetailDialog(task) {
       this.taskDetailDialog.task = task
