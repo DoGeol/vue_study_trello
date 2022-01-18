@@ -1,7 +1,7 @@
 <template>
   <article class="trello-list" @contextmenu.prevent @click.right="handleOpenContextMenu">
     <slot name="header" />
-    <t-draggable :list="taskList" class="trello-list__tasks" ghost-class="trello-list__tasks-item__ghost" group="tasks" tag="ul" filter=".ignore">
+    <t-draggable :list="taskList" class="trello-list__tasks" ghost-class="trello-list__tasks-item__ghost" group-name="tasks" tag="ul" filter=".ignore">
       <template v-if="taskList.length > 0">
         <!-- item -->
         <slot name="tasks" :task="taskList" />

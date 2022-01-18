@@ -17,7 +17,7 @@
       </template>
     </t-header>
     <t-row class="trello">
-      <t-draggable :list="trelloLists" group="lists" ghost-class="trello-list__wrap__ghost" filter=".button">
+      <t-draggable :list="trelloLists" group-name="lists" ghost-class="trello-list__wrap__ghost" filter=".button">
         <t-col v-for="list in trelloLists" :key="list.id" class="trello-list__wrap" cols="24" lg="6" md="12" xs="24">
           <t-trello-list :task-list="list.tasks">
             <template #header>
