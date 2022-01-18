@@ -22,6 +22,7 @@
       font-size: 20px;
       font-weight: normal;
     }
+
     &__tasks {
       &-item {
         margin-top: 4px;
@@ -46,10 +47,29 @@
           border: 1px solid gray;
           cursor: default;
 
-          //&:hover {
-          //  opacity: 1;
-          //  cursor: pointer;
-          //}
+          > div > span {
+            border-width: 1px;
+            border-color: gray;
+
+            &::after {
+              color: gray;
+            }
+          }
+
+          &:hover {
+            opacity: 1;
+            cursor: pointer;
+            border-color: $primary-deep;
+
+            > div > span {
+              border-color: $primary-deep;
+
+              &::after {
+                color: $primary-deep;
+              }
+            }
+
+          }
         }
       }
     }

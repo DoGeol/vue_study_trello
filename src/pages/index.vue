@@ -18,7 +18,7 @@
     </t-header>
     <t-row class="trello">
       <template v-if="trelloLists.length > 0">
-        <t-draggable :list="trelloLists" group-name="lists" ghost-class="trello-list__wrap__ghost" filter=".button">
+        <t-draggable :list="trelloLists" group-name="lists" ghost-class="trello-list__wrap__ghost" filter-class=".button">
           <t-col v-for="list in trelloLists" :key="list.id" class="trello-list__wrap" cols="24" lg="6" md="12" xs="24">
             <t-trello-list :task-list="list.tasks">
               <template #header>
@@ -39,6 +39,11 @@
                   <t-trello-item-default :task="task" :key="task.id" @click="handleOpenTaskDetailDialog(task)" @handleDelete="getList" />
                 </template>
               </template>
+              <template #empty_tasks>
+                <div class="flex x-center y-center">
+                  <span class="plus width-24 height-24" @click="handleOpenAddTaskDialog(list)" />
+                </div>
+              </template>
               <template #context-menu>
                 <ul>
                   <li @click="handleContextOpenAddTaskDialog(list)">Task 추가</li>
@@ -55,7 +60,7 @@
             <t-row>
               <t-col class="height-300">
                 <div class="flex x-center y-center height-full">
-                  <span class="plus" @click="handleOpenAddListDialog" />
+                  <span class="plus big width-100 height-100" @click="handleOpenAddListDialog" />
                 </div>
               </t-col>
             </t-row>

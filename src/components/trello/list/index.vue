@@ -1,13 +1,17 @@
 <template>
   <article class="trello-list" @contextmenu.prevent @click.right="handleOpenContextMenu">
     <slot name="header" />
-    <t-draggable :list="taskList" class="trello-list__tasks" ghost-class="trello-list__tasks-item__ghost" group-name="tasks" tag="ul" filter=".ignore">
+    <t-draggable :list="taskList" class="trello-list__tasks" ghost-class="trello-list__tasks-item__ghost" group-name="tasks" tag="ul" filter-class=".ignore">
       <template v-if="taskList.length > 0">
         <!-- item -->
         <slot name="tasks" :task="taskList" />
       </template>
       <template v-else>
-        <li class="trello-list__tasks-item empty ignore">테스크를 생성해주세요.</li>
+        <li class="trello-list__tasks-item empty ignore">
+          <slot name="empty_tasks">
+            <div class="flex x-center y-center">테스크를 생성해주세요</div>
+          </slot>
+        </li>
       </template>
     </t-draggable>
 

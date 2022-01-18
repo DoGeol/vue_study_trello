@@ -20,8 +20,6 @@
 
 .plus {
   position: relative;
-  width: 100px;
-  height: 100px;
   border: 2px solid lightgray;
   border-radius: 50%;
   cursor: pointer;
@@ -30,11 +28,18 @@
     font-family: 'Noto Sans KR', serif;
     position: absolute;
     content: '\002B';
-    font-size: 80px;
+    font-size: 20px;
     top: 45%;
     left: 50%;
     color: lightgray;;
     @include vendorPrefix('transform', translate(-50%, -50%));
+  }
+
+  &.big {
+    &::after {
+      font-size: 80px;
+      font-weight: 200;
+    }
   }
 
   &:hover {
