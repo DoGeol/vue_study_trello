@@ -17,36 +17,51 @@
       </template>
     </t-header>
     <t-row class="trello">
-      <t-draggable :list="trelloLists" group-name="lists" ghost-class="trello-list__wrap__ghost" filter=".button">
-        <t-col v-for="list in trelloLists" :key="list.id" class="trello-list__wrap" cols="24" lg="6" md="12" xs="24">
-          <t-trello-list :task-list="list.tasks">
-            <template #header>
-              <t-row class="mg-b-16">
-                <t-col cols="16">
-                  <h2 class="trello-list__title">{{ list.title }}</h2>
-                </t-col>
-                <t-col cols="8">
-                  <div class="flex x-end y-center">
-                    <t-button size="small" @click="handleOpenAddTaskDialog(list)">Task 추가</t-button>
-                    <t-button class="mg-l-8" size="small" @click="handleRemoveList(list)">삭제</t-button>
-                  </div>
-                </t-col>
-              </t-row>
-            </template>
-            <template #tasks="tasks">
-              <template v-for="task in tasks.task">
-                <t-trello-item-default :task="task" :key="task.id" @click="handleOpenTaskDetailDialog(task)" @handleDelete="getList" />
+      <template v-if="trelloLists.length > 0">
+        <t-draggable :list="trelloLists" group-name="lists" ghost-class="trello-list__wrap__ghost" filter=".button">
+          <t-col v-for="list in trelloLists" :key="list.id" class="trello-list__wrap" cols="24" lg="6" md="12" xs="24">
+            <t-trello-list :task-list="list.tasks">
+              <template #header>
+                <t-row class="mg-b-16">
+                  <t-col cols="16">
+                    <h2 class="trello-list__title">{{ list.title }}</h2>
+                  </t-col>
+                  <t-col cols="8">
+                    <div class="flex x-end y-center">
+                      <t-button size="small" @click="handleOpenAddTaskDialog(list)">Task 추가</t-button>
+                      <t-button class="mg-l-8" size="small" @click="handleRemoveList(list)">삭제</t-button>
+                    </div>
+                  </t-col>
+                </t-row>
               </template>
-            </template>
-            <template #context-menu>
-              <ul>
-                <li @click="handleContextOpenAddTaskDialog(list)">Task 추가</li>
-                <li @click="handleContextRemoveList(list)">리스트 삭제</li>
-              </ul>
-            </template>
-          </t-trello-list>
+              <template #tasks="tasks">
+                <template v-for="task in tasks.task">
+                  <t-trello-item-default :task="task" :key="task.id" @click="handleOpenTaskDetailDialog(task)" @handleDelete="getList" />
+                </template>
+              </template>
+              <template #context-menu>
+                <ul>
+                  <li @click="handleContextOpenAddTaskDialog(list)">Task 추가</li>
+                  <li @click="handleContextRemoveList(list)">리스트 삭제</li>
+                </ul>
+              </template>
+            </t-trello-list>
+          </t-col>
+        </t-draggable>
+      </template>
+      <template v-else>
+        <t-col class="trello-list__wrap" cols="24" lg="6" md="12" xs="24">
+          <article class="trello-list">
+            <t-row>
+              <t-col class="height-300">
+                <div class="flex x-center y-center height-full">
+                  <span class="plus" @click="handleOpenAddListDialog" />
+                </div>
+              </t-col>
+            </t-row>
+          </article>
         </t-col>
-      </t-draggable>
+      </template>
     </t-row>
 
     <t-trello-add-list-dialog :visible="addListDialog.visible" @handleClose="handleCloseAddListDialog"></t-trello-add-list-dialog>

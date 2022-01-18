@@ -1,61 +1,3 @@
-.trello {
-  padding: 0 24px;
-
-  .trello-list {
-    padding: 16px;
-    border-radius: 4px;
-    background-color: $white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
-    &__wrap {
-      padding: 4px;
-      vertical-align: top;
-
-      &__ghost {
-        opacity: 0.8;
-        background: transparent;
-        border: 4px dashed $primary-deep;
-      }
-    }
-
-    &__title {
-      font-size: 20px;
-      font-weight: normal;
-    }
-    &__tasks {
-      &-item {
-        margin-top: 4px;
-        padding: 8px;
-        border: 1px solid $primary;
-        border-radius: 4px;
-        cursor: pointer;
-
-        &:first-child {
-          margin-top: 0;
-        }
-
-        &__ghost {
-          opacity: 0.8;
-          background: transparent;
-          border: 4px dashed $primary-deep;
-        }
-
-        &.empty {
-          opacity: 0.5;
-          background: transparent;
-          border: 1px solid gray;
-          cursor: default;
-
-          //&:hover {
-          //  opacity: 1;
-          //  cursor: pointer;
-          //}
-        }
-      }
-    }
-  }
-}
-
 .form {
   label {
     font-size: 14px;
@@ -68,9 +10,38 @@
   .label {
     font-weight: 900;
   }
+
   .detail-info-area {
     padding: 12px;
     background-color: #eee;
     border-radius: 4px;
+  }
+}
+
+.plus {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: 2px solid lightgray;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &::after {
+    font-family: 'Noto Sans KR', serif;
+    position: absolute;
+    content: '\002B';
+    font-size: 80px;
+    top: 45%;
+    left: 50%;
+    color: lightgray;;
+    @include vendorPrefix('transform', translate(-50%, -50%));
+  }
+
+  &:hover {
+    border-color: $primary-deep;
+
+    &::after {
+      color: $primary-deep;
+    }
   }
 }
