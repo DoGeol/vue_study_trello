@@ -50,3 +50,34 @@
     }
   }
 }
+
+.close {
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    font-family: 'Noto Sans KR', serif;
+    position: absolute;
+    content: '\00D7';
+    font-size: 20px;
+    top: 50%;
+    left: 50%;
+    color: lightgray;;
+    @include vendorPrefix('transform', translate(-50%, -50%));
+  }
+
+  &.big {
+    &::after {
+      font-size: 80px;
+      font-weight: 200;
+    }
+  }
+
+  &:hover {
+    border-color: $primary-deep;
+
+    &::after {
+      color: $primary-deep;
+    }
+  }
+}

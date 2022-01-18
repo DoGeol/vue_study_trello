@@ -1,14 +1,16 @@
 <template>
   <li class="trello-list__tasks-item" @click="handleClick">
     <t-row>
-      <t-col cols="23" class="height-24">
+      <t-col cols="21" class="height-24">
         <div class="flex x-start y-center height-full">
           <s v-if="task.status === 'close'">{{ task.title }}</s>
           <template v-else>{{ task.title }}</template>
         </div>
       </t-col>
-      <t-col cols="1" class="height-24">
-        <t-button size="small" class="ignore" @click="handleDeleteTask">X</t-button>
+      <t-col cols="3" class="height-24">
+        <div class="flex x-center y-center height-full">
+          <span class="ignore close" @click.stop="handleDeleteTask" />
+        </div>
       </t-col>
     </t-row>
   </li>

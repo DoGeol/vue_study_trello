@@ -1,13 +1,17 @@
 {
   "lists": [
     {
-      "title": "트렐로 테스트 001",
+      "title": "123",
       "id": 1
-    },
-    {
-      "title": "배고파",
-      "id": 2
     }
   ],
-  "tasks": []
+  "tasks": [
+    {
+      "listId": 1,
+      "title": "213",
+      "description": "123",
+      "status": "open",
+      "id": 1
+    }
+  ]
 }

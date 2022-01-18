@@ -40,8 +40,8 @@
                 </template>
               </template>
               <template #empty_tasks>
-                <div class="flex x-center y-center">
-                  <span class="plus width-24 height-24" @click="handleOpenAddTaskDialog(list)" />
+                <div class="flex x-center y-center" @click="handleOpenAddTaskDialog(list)">
+                  <span class="plus width-24 height-24" />
                 </div>
               </template>
               <template #context-menu>
@@ -69,7 +69,7 @@
       </template>
     </t-row>
 
-    <t-trello-add-list-dialog :visible="addListDialog.visible" @handleClose="handleCloseAddListDialog"></t-trello-add-list-dialog>
+    <t-trello-add-list-dialog :visible="addListDialog.visible" @handleClose="handleCloseAddListDialog" />
     <t-trello-add-task-dialog :visible="addTaskDialog.visible" :list="addTaskDialog.list" @handleClose="handleCloseAddTaskDialog" />
     <t-trello-task-detail-dialog :visible="taskDetailDialog.visible" :task="taskDetailDialog.task" @handleClose="handleCloseTaskDetailDialog" />
   </section>
